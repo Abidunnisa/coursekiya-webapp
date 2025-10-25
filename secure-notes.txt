@@ -1,0 +1,4 @@
+# Security notes
+- Never commit your DATABASE_URL or JWT secrets to source control.
+- Use environment variables in your hosting provider (Vercel, Railway, Fly.io, Render).
+- Use TLS/SSL for production DB connections and rotate keys periodically.
