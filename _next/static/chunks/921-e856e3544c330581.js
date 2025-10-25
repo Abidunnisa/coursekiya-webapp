@@ -1,4 +1,4 @@
-"use strict";(self.webpackChunk_N_E=self.webpackChunk_N_E||[]).push([[630],{1373:function(e,a,t){t.d(a,{Z:function(){return createLucideIcon}});var l=t(7294);/**
+"use strict";(self.webpackChunk_N_E=self.webpackChunk_N_E||[]).push([[921],{1373:function(e,a,t){t.d(a,{Z:function(){return createLucideIcon}});var l=t(7294);/**
  * @license lucide-react v0.548.0 - ISC
  *
  * This source code is licensed under the ISC license.
