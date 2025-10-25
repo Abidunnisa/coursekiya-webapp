@@ -23,21 +23,6 @@ export const Header: React.FC <{ onNavigate: (page: string) => void, currentPage
     <header className="bg-white shadow-sm sticky top-0 z-50">
       <nav className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          {/* Logo and Mobile Menu Toggle */}
-          {/* <div className="flex items-center">
-              <a href="#" className="flex-shrink-0 flex items-center">
-              <img className="h-24 w-auto" src={logo.src} alt="CourseKiya Logo" />
-              <span className="text-2xl font-bold text-blue-600">Coursekiya</span>
-            </a>
-            <button
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="ml-4 md:hidden p-2 rounded-md text-gray-600 hover:text-gray-900 hover:bg-gray-100"
-              aria-label="Toggle menu"
-            >
-              {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
-          </div> */}
-
           <div className="flex items-center">
             <a
               href="#"
@@ -48,7 +33,7 @@ export const Header: React.FC <{ onNavigate: (page: string) => void, currentPage
               className="flex-shrink-0 flex items-center cursor-pointer"
             >
               <img className="h-24 w-auto" src={coursekiyalogo?.src} alt="CourseKiya Logo" />
-              <span className="text-2xl font-bold text-blue-600">Coursekiya</span>
+              <span className="text-3xl font-bold text-blue-600">Coursekiya</span>
             </a>
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}

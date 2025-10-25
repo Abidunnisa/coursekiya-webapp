@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Heart, Search, ShoppingCart, User, Menu, X, Star, PlayCircle, BookOpen, Clock, BarChart2, ChevronRight, ChevronLeft, MapPin, Mail, Phone } from 'lucide-react';
 import { Header, Footer, HeroSection, CategoriesSection, Category, Course, CourseListSection, InstructorCTA, Instructor } from '../src/components';
+import ContactUs from './ContactUs';
 
 export const HomePage: React.FC<{ categories: Category[], courses: Course[] }> = ({ categories, courses }) => {
   const featuredCourses = courses?.slice(0, 4);
@@ -8,11 +9,11 @@ export const HomePage: React.FC<{ categories: Category[], courses: Course[] }> =
 
   return (
     <div>
-      <HeroSection />
+      <HeroSection courses={featuredCourses} />
       <CategoriesSection categories={categories} />
-      <CourseListSection title="Featured Courses" courses={featuredCourses} timeline={false} viewAllCheck={true} />
       <InstructorCTA />
-      <CourseListSection title="Top Courses in Development" courses={devCourses} timeline={false} viewAllCheck={true} />
+      {/* <CourseListSection title="Top Courses in Development" courses={devCourses} timeline={false} viewAllCheck={true} /> */}
+      <ContactUs courses={courses} />
     </div>
   )
 };

@@ -58,27 +58,6 @@ export const ContactUs: React.FC<{ courses: Course[] }> = ({courses}) => {
           </p>
         ) : (
           <form onSubmit={handleSubmit} className="space-y-4">
-            {/* Course */}
-            <div>
-              <label className="block text-sm font-medium text-gray-700">
-                Course
-              </label>
-              <select
-                name="course"
-                value={formData?.course}
-                onChange={handleChange}
-                required
-                className="mt-1 block w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-blue-500 focus:border-blue-500"
-              >
-                <option value="">Select a course</option>
-                {courses?.map((c) => (
-                  <option key={c?.id} value={c?.title}>
-                    {c?.title}
-                  </option>
-                ))}
-              </select>
-            </div>
-
             {/* Name */}
             <div>
               <label className="block text-sm font-medium text-gray-700">
@@ -140,6 +119,27 @@ export const ContactUs: React.FC<{ courses: Course[] }> = ({courses}) => {
                 <option>Outside India</option>
               </select>
             </div>
+
+            {/* Course */}
+            <div>
+              <label className="block text-sm font-medium text-gray-700">
+                Course
+              </label>
+              <select
+                name="course"
+                value={formData?.course}
+                onChange={handleChange}
+                required
+                className="mt-1 block w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-blue-500 focus:border-blue-500"
+              >
+                <option value="">Select a course</option>
+                {courses?.map((c) => (
+                  <option key={c?.id} value={c?.title}>
+                    {c?.title}
+                  </option>
+                ))}
+              </select>
+            </div>  
 
             {/* Comments */}
             <div>
