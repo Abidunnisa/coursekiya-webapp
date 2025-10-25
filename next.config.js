@@ -2,9 +2,11 @@
 const nextConfig = {
   output: 'export',
   images: {
-    unoptimized: true, // required for static exports
+    unoptimized: true,
   },
-  trailingSlash: true, // optional but helps with GitHub Pages
+  trailingSlash: true,
+  basePath: '/coursekiya-webapp', // 👈 must match your repo name
+  assetPrefix: '/coursekiya-webapp/', // 👈 add this
 };
 
 module.exports = nextConfig;
