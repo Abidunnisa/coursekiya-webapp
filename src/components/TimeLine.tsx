@@ -13,20 +13,20 @@ export const Timeline: React.FC<{ setTab: (tab: string) => void }> = ({ setTab }
   return (
     <div className="flex justify-center">
       <div className="flex bg-gray-100 rounded-full p-2 space-x-2">
-        {timelineData.map((tab) => (
+        {timelineData?.map((tab) => (
           <button
-            key={tab.page}
+            key={tab?.page}
             onClick={() => {
-              setActiveTab(tab.page);
-              setTab(tab.page);
+              setActiveTab(tab?.page);
+              setTab(tab?.page);
             }}
             className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300
-              ${activeTab === tab.page
+              ${activeTab === tab?.page
                 ? "bg-blue-600 text-white shadow-md"
                 : "text-gray-600 hover:bg-gray-200"
               }`}
           >
-            {tab.name}
+            {tab?.name}
           </button>
         ))}
       </div>

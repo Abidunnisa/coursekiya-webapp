@@ -15,10 +15,10 @@ export const CategoriesSection: React.FC<{ categories: Category[] }> = ({ catego
           Top Categories
         </h2>
         <div className="flex gap-4 md:gap-6">
-          {categories.map((category) => (
-            <div className="sm:w-1/2 md:w-1/4 lg:w-1/7" key={category.id}>
+          {categories?.map((category) => (
+            <div className="sm:w-1/2 md:w-1/4 lg:w-1/7" key={category?.id}>
             <a
-              key={category.id}
+              key={category?.id}
               href="#"
               className="group flex flex-col items-center p-4 bg-gray-50 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 ease-in-out hover:-translate-y-1"
             >
@@ -26,7 +26,7 @@ export const CategoriesSection: React.FC<{ categories: Category[] }> = ({ catego
                 <category.icon size={32} />
               </div>
               <span className="mt-4 font-semibold text-gray-800 text-center group-hover:text-blue-600">
-                {category.name}
+                {category?.name}
               </span>
             </a>
             </div>

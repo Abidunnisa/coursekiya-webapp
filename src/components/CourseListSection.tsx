@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
 import { Heart, Search, ShoppingCart, User, Menu, X, Star, PlayCircle, BookOpen, Clock, BarChart2, ChevronRight, ChevronLeft, MapPin, Mail, Phone } from 'lucide-react';
-import { Course, CourseCard } from './CourseCard';
-import { Timeline } from './TimeLine';
-import { Courses } from '../courses';
-import { RenderPage } from '../RenderPage';
+import { Course, CourseCard, Timeline } from '@components';
+import { RenderPage } from '../../pages/RenderPage';
 
 export const CourseListSection: React.FC<{ title: string; courses: Course[], timeline: boolean, viewAllCheck: boolean }> = ({ title, courses, timeline, viewAllCheck }) => {
 
@@ -28,8 +26,8 @@ export const CourseListSection: React.FC<{ title: string; courses: Course[], tim
           }
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-          {(currentTimelineTab === "all" ? courses : courses.filter((c: { status: string; }) => c.status === currentTimelineTab)).map((course) => (
-            <CourseCard key={course.id} course={course} />
+          {(currentTimelineTab === "all" ? courses : courses?.filter((c: { status: string; }) => c.status === currentTimelineTab))?.map((course) => (
+            <CourseCard key={course?.id} course={course} />
           ))}
         </div>
       </div>

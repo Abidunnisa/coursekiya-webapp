@@ -48,14 +48,14 @@ export const Footer: React.FC = () => {
           </div>
           
           {/* Footer Links */}
-          {Object.entries(footerLinks).map(([title, links]) => (
+          {Object.entries(footerLinks)?.map(([title, links]) => (
             <div key={title} className="md:justify-self-center">
               <h3 className="text-sm font-semibold text-gray-200 tracking-wider uppercase">{title}</h3>
               <ul className="mt-4 space-y-2">
-                {links.map((link) => (
-                  <li key={link.name}>
-                    <a href={link.href} className="text-base text-gray-400 hover:text-white">
-                      {link.name}
+                {links?.map((link) => (
+                  <li key={link?.name}>
+                    <a href={link?.href} className="text-base text-gray-400 hover:text-white">
+                      {link?.name}
                     </a>
                   </li>
                 ))}

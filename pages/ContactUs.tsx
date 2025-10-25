@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Course } from "./components";
+import { Course } from "@components";
 
 export const ContactUs: React.FC<{ courses: Course[] }> = ({courses}) => {
   const [formData, setFormData] = useState({
@@ -65,15 +65,15 @@ export const ContactUs: React.FC<{ courses: Course[] }> = ({courses}) => {
               </label>
               <select
                 name="course"
-                value={formData.course}
+                value={formData?.course}
                 onChange={handleChange}
                 required
                 className="mt-1 block w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-blue-500 focus:border-blue-500"
               >
                 <option value="">Select a course</option>
-                {courses.map((c) => (
-                  <option key={c.id} value={c.title}>
-                    {c.title}
+                {courses?.map((c) => (
+                  <option key={c?.id} value={c?.title}>
+                    {c?.title}
                   </option>
                 ))}
               </select>
@@ -87,7 +87,7 @@ export const ContactUs: React.FC<{ courses: Course[] }> = ({courses}) => {
               <input
                 type="text"
                 name="name"
-                value={formData.name}
+                value={formData?.name}
                 onChange={handleChange}
                 required
                 className="mt-1 block w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-blue-500 focus:border-blue-500"
@@ -102,7 +102,7 @@ export const ContactUs: React.FC<{ courses: Course[] }> = ({courses}) => {
               <input
                 type="tel"
                 name="phone"
-                value={formData.phone}
+                value={formData?.phone}
                 onChange={handleChange}
                 required
                 pattern="[0-9]{10,15}"
@@ -118,7 +118,7 @@ export const ContactUs: React.FC<{ courses: Course[] }> = ({courses}) => {
               <input
                 type="email"
                 name="email"
-                value={formData.email}
+                value={formData?.email}
                 onChange={handleChange}
                 required
                 className="mt-1 block w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-blue-500 focus:border-blue-500"
@@ -132,7 +132,7 @@ export const ContactUs: React.FC<{ courses: Course[] }> = ({courses}) => {
               </label>
               <select
                 name="location"
-                value={formData.location}
+                value={formData?.location}
                 onChange={handleChange}
                 className="mt-1 block w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-blue-500 focus:border-blue-500"
               >
@@ -148,7 +148,7 @@ export const ContactUs: React.FC<{ courses: Course[] }> = ({courses}) => {
               </label>
               <textarea
                 name="comments"
-                value={formData.comments}
+                value={formData?.comments}
                 onChange={handleChange}
                 rows={3}
                 placeholder="Any specific queries..."
@@ -170,3 +170,6 @@ export const ContactUs: React.FC<{ courses: Course[] }> = ({courses}) => {
     </section>
   );
 };
+
+export default ContactUs;
+
