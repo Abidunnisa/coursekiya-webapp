@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Course } from "@components";
+import { Course } from "../src/components";
 
 export const ContactUs: React.FC<{ courses: Course[] }> = ({courses}) => {
   const [formData, setFormData] = useState({

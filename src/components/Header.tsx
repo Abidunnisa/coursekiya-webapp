@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Heart, Search, ShoppingCart, User, Menu, X, Star, PlayCircle, BookOpen, Clock, BarChart2, ChevronRight, ChevronLeft, MapPin, Mail, Phone } from 'lucide-react';
-import { coursekiyalogo } from '@assets';
+import { coursekiyalogo } from 'public';
 
 export const Header: React.FC <{ onNavigate: (page: string) => void, currentPage: string }> = ({ onNavigate, currentPage }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);

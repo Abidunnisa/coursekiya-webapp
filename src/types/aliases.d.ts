@@ -1,1 +1,1 @@
-declare module "@assets/*";
+declare module "@public/*";

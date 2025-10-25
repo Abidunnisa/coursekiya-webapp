@@ -1,12 +1,17 @@
-/** @type {import('next').NextConfig} */
+const path = require('path');
+
 const nextConfig = {
   output: 'export',
-  images: {
-    unoptimized: true,
-  },
+  images: { unoptimized: true },
   trailingSlash: true,
-  basePath: '/coursekiya-webapp', // 👈 must match your repo name
-  assetPrefix: '/coursekiya-webapp/', // 👈 add this
+  assetPrefix: '',
+  basePath: '',
+  webpack: (config) => {
+    config.resolve.alias['@components'] = path.join(__dirname, './src/components');
+    config.resolve.alias['@public'] = path.join(__dirname, './public');
+    config.resolve.alias['@'] = path.join(__dirname, 'src');
+    return config;
+  },
 };
 
 module.exports = nextConfig;

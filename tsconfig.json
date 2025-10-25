@@ -21,12 +21,12 @@
     "types": [
       "node"
     ],
-    "baseUrl": "src",
+    "baseUrl": ".",
     "paths": {
-      "@assets/*": ["./assets/*"],
-      "@assets": ["./assets/index"],
-      "@components/*": ["./components"],
-      "@components": ["components/index"]
+      "@public/*": ["./src/public/*"],
+      "@public": ["./src/public/index"],
+      "@components/*": ["./src/components/*"],
+      "@components": ["./src/components/index"]
     },
   },
   "include": [
