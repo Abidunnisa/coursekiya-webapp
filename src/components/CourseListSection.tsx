@@ -7,18 +7,18 @@ export const CourseListSection: React.FC<{ title: string; courses: Course[], tim
 
   const [currentTimelineTab, setCurrentTimelineTab] = useState<string>('all');
 
-  const handleViewAllClick = () =>  {
+  const handleViewAllClick = () => {
     <RenderPage title={title} courses={courses} categories={undefined} currentPage='courses' />
   };
 
   return (
     <section className="py-16 bg-gray-50">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center mb-8">
+        <div className="flex flex-col md:flex-row justify-between items-center mb-8 gap-4 md:gap-0">
           <h2 className="text-3xl font-extrabold text-gray-900">
             {title}
           </h2>
-          {timeline && <Timeline setTab={setCurrentTimelineTab}/>}
+          {timeline && <Timeline setTab={setCurrentTimelineTab} />}
           {viewAllCheck &&
             <button onClick={() => handleViewAllClick()} className="text-sm font-medium text-blue-600 hover:text-blue-500 flex items-center">
               View All <ChevronRight size={16} className="ml-1" />

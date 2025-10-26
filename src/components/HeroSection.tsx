@@ -66,9 +66,9 @@ export const HeroSection: React.FC<{ courses: Course[] }> = ({ courses }) => {
         <div className="absolute top-20 left-10 w-72 h-72 bg-blue-200 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse"></div>
         <div className="absolute bottom-20 right-10 w-72 h-72 bg-indigo-200 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse" style={{ animationDelay: '2s' }}></div>
 
-        <div className="relative z-10 max-w-6xl mx-auto px-6 pb-20">
-          <div className="flex gap-12 items-center">
-            <div className="space-y-6 w-2/3">
+        <div className="relative z-10 max-w-6xl mx-auto px-6 pb-20 py-12 ">
+          <div className="grid md:grid-cols-5 gap-12 items-center">
+            <div className="space-y-6 md:col-span-3 col-span-3">
               <div className="inline-block">
                 <span className="px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-semibold">
                   Welcome to Our Platform
@@ -99,7 +99,7 @@ export const HeroSection: React.FC<{ courses: Course[] }> = ({ courses }) => {
             </div>
 
             {/* <div className="relative" style={{ transform: translateY(${ scrollY * - 0.05}px)}}> */}
-            <div className="relative bg-white rounded-3xl shadow-2xl overflow-hidden p-8 w-1/3">
+            <div className="col-span-3 md:col-span-2 relative bg-white rounded-3xl shadow-2xl overflow-hidden p-8">
               <div className="aspect-square bg-gradient-to-br from-blue-100 to-indigo-100 rounded-2xl mb-6 flex items-center justify-center overflow-hidden">
                 <img src={abidunnisa1.src} className="w-full h-full object-cover"/>
               </div>
@@ -117,7 +117,7 @@ export const HeroSection: React.FC<{ courses: Course[] }> = ({ courses }) => {
           </div>
         </div>
 
-        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
+        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 animate-bounce">
           <ArrowDown className="text-blue-600" size={32} />
         </div>
       </section >

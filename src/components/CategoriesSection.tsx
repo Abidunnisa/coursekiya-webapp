@@ -16,7 +16,7 @@ export const CategoriesSection: React.FC<{ categories: Category[] }> = ({ catego
         </h2>
         <div className="flex flex-wrap gap-4 md:gap-6 items-center justify-center">
           {categories?.map((category) => (
-            <div className="sm:w-1/2 md:w-1/4 lg:w-1/7 flex-1 min-w-[120px] max-w-[180px] sm:min-w-[140px] md:min-w-[160px]" key={category?.id}>
+            <div className="sm:w-1/2 md:w-1/4 lg:w-1/7 flex-1 min-w-[160px] max-w-[180px] sm:min-w-[140px] md:min-w-[160px]" key={category?.id}>
               <a
                 key={category?.id}
                 href="#"

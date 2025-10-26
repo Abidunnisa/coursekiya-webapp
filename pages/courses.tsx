@@ -1,5 +1,5 @@
 import React from 'react'
-import { CourseCard, Course, CourseListSection } from '../src/components';
+import { CourseCard, Course, CourseListSection } from '@components';
 
 export const Courses: React.FC<{ title:string, courses: Course[] }> = ({ courses, title }) => {
 

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Course } from "../src/components";
+import { Course } from "@components";
 
 export const ContactUs: React.FC<{ courses: Course[] }> = ({courses}) => {
   const [formData, setFormData] = useState({
@@ -46,9 +46,12 @@ export const ContactUs: React.FC<{ courses: Course[] }> = ({courses}) => {
   };
 
   return (
-    <section className="min-h-screen bg-gray-50 py-16 px-4 flex justify-center items-center">
-      <div className="bg-white shadow-xl rounded-2xl max-w-lg w-full p-8">
-        <h1 className="text-3xl font-bold text-center text-gray-900 mb-6">
+    <section className="min-h-screen bg-gray-50 py-4 px-4 flex flex-col justify-center items-center gap-4">
+      <div>
+        <h1 className="text-4xl font-bold text-center text-gray-900 mb-6"> Contact Us</h1>
+      </div>
+      <div className="bg-white shadow-xl rounded-2xl max-w-lg w-full p-8 ">
+        <h1 className="text-xl font-bold text-center text-gray-900 mb-6">
           Enquire About a Course
         </h1>
 

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Heart, Search, ShoppingCart, User, Menu, X, Star, PlayCircle, BookOpen, Clock, BarChart2, ChevronRight, ChevronLeft, MapPin, Mail, Phone } from 'lucide-react';
-import { CourseCard, Course, CourseListSection } from '../src/components';
+import { CourseCard, Course, CourseListSection } from '@components';
 
 export const Webinars: React.FC<{ title: string, courses: Course[] }> = ({ title, courses }) => {
   return (

@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { Heart, Search, ShoppingCart, User, Menu, X, Star, PlayCircle, BookOpen, Clock, BarChart2, ChevronRight, ChevronLeft, MapPin, Mail, Phone } from 'lucide-react';
-import { Header, Footer, HeroSection, CategoriesSection, Category, Course, CourseListSection, InstructorCTA, Instructor } from '../src/components';
+import { Header, Footer, HeroSection, CategoriesSection, Category, Course, CourseListSection, InstructorCTA, Instructor } from '@components';
 import Courses from './courses';
 import HomePage from './Home';
 import Webinars from './Webinars';
 import ContactUs from './ContactUs';
+import InstructorPage from './Instructor';
 
 export const RenderPage: React.FC<{ categories?: Category[], courses?: Course[], title: string, currentPage: string }> = ({ categories, courses, title, currentPage }) => {
   switch (currentPage) {
@@ -18,8 +19,8 @@ export const RenderPage: React.FC<{ categories?: Category[], courses?: Course[],
       return <main><ContactUs courses={courses ?? []} /></main>
     // case 'digital-products':
     //   return <main><DigitalProductsPage /></main>;
-    // case 'teach':
-    //   return <main><TeachPage /></main>;
+    case 'teach':
+      return <main><InstructorPage /></main>;
     default:
       return <main><HomePage categories={categories ?? []} courses={courses ?? []} /></main>;
   }
