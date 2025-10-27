@@ -1,64 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { Heart, Search, ShoppingCart, User, Menu, X, Star, PlayCircle, BookOpen, Clock, BarChart2, ChevronRight, ChevronLeft, MapPin, Mail, Phone, Award, Users, Target, ArrowDown } from 'lucide-react';
-import { CourseListSection, Course, CourseCard } from '@components';
-import { abidunnisa1, abidunnisa2 } from 'public';
+import { Heart, ChevronRight, Award, Users, Target, ArrowDown } from 'lucide-react';
+import { Course, CourseCard } from '@components';
+import { abidunnisa1 } from 'public';
+import { useNavigate } from 'react-router-dom';
 
 export const HeroSection: React.FC<{ courses: Course[] }> = ({ courses }) => {
-  //   return (
-  //     <div className="bg-gray-50">
-  //       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
-  //         <div className="max-w-3xl mx-auto text-center">
-  //           <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 tracking-tight">
-  //             Find your next learning adventure
-  //           </h1>
-  //           <p className="mt-4 md:mt-6 text-lg md:text-xl text-gray-600">
-  //             Learn from industry experts. Master new skills. Get job-ready with our hands-on courses.
-  //           </p>
-  //           <form className="mt-8 md:mt-10 flex max-w-lg mx-auto">
-  //             <label htmlFor="search-course" className="sr-only">
-  //               Search for courses
-  //             </label>
-  //             <input
-  //               type="text"
-  //               name="search-course"
-  //               id="search-course"
-  //               className="flex-1 block w-full px-5 py-4 rounded-l-md border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-  //               placeholder="What do you want to learn today?"
-  //             />
-  //             <button
-  //               type="submit"
-  //               className="inline-flex items-center px-6 py-4 border border-transparent rounded-r-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
-  //               aria-label="Search"
-  //             >
-  //               <Search size={20} />
-  //             </button>
-  //           </form>
-  //           <div className="mt-6 flex flex-wrap justify-center gap-2">
-  //             <span className="text-sm font-medium text-gray-700">Popular:</span>
-  //             {['React', 'Python', 'UI/UX', 'AWS', 'Data Science'].map((tag) => (
-  //               <a
-  //                 key={tag}
-  //                 href="#"
-  //                 className="px-3 py-1 bg-white border border-gray-300 rounded-full text-sm text-gray-600 hover:bg-gray-50"
-  //               >
-  //                 {tag}
-  //               </a>
-  //             ))}
-  //           </div>
-  //         </div>
-  //       </div>
-  //     </div>
-  //   );
-  // };
-
-  // export default function AboutUsPage() {
-  const [scrollY, setScrollY] = useState(0);
-
-  useEffect(() => {
-    const handleScroll = () => setScrollY(window.scrollY);
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  const push = useNavigate();
 
   return (
     <div className="bg-white">
@@ -75,8 +22,8 @@ export const HeroSection: React.FC<{ courses: Course[] }> = ({ courses }) => {
                 </span>
               </div>
               <h1 className="text-5xl md:text-6xl font-bold text-gray-900 leading-tight">
-                Empowering Learning,
-                <span className="text-blue-600"> One Course at a Time</span>
+                Simplifying Learning,
+                <span className="text-blue-600"> Empowering you</span>
               </h1>
               <p className="text-xl text-gray-600 leading-relaxed">
                 We believe in making quality education accessible to everyone. Our platform is designed to help you achieve your learning goals with expert-led courses.
@@ -86,7 +33,7 @@ export const HeroSection: React.FC<{ courses: Course[] }> = ({ courses }) => {
             {/* <div className="relative" style={{ transform: translateY(${ scrollY * - 0.05}px)}}> */}
             <div className="col-span-3 md:col-span-2 relative bg-white rounded-3xl shadow-2xl overflow-hidden p-8">
               <div className="aspect-square bg-gradient-to-br from-blue-100 to-indigo-100 rounded-2xl mb-6 flex items-center justify-center overflow-hidden">
-                <img src={abidunnisa1.src} className="w-full h-full object-cover"/>
+                <img src={abidunnisa1.src} className="w-full h-full object-cover" />
               </div>
 
               <div className="text-center">
@@ -168,52 +115,33 @@ export const HeroSection: React.FC<{ courses: Course[] }> = ({ courses }) => {
       <section className="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
         <div className="max-w-5xl mx-auto px-6">
           <div className="bg-white rounded-3xl shadow-xl p-12">
-            <div className="flex items-center gap-8 mb-8">
-              <div className="flex-shrink-0">
+            <div className="flex items-center gap-8 mb-8 justify-center">
+              {/* <div className="flex-shrink-0">
                 <img src={abidunnisa2.src} className="w-28 h-28 rounded-2xl object-fit" />
-              </div>
+              </div> */}
 
               <div>
-                <h2 className="text-3xl font-bold text-gray-900 mb-2">Meet the Founder</h2>
-                <p className="text-blue-600 font-medium">Abidunnisa Begum - Educator & Entrepreneur</p>
+                <h2 className="text-3xl font-bold text-gray-900 mb-2">Meet the Founders</h2>
+                <p className="text-blue-600 font-medium">Abidunnisa Begum & Shaik Dadavalli</p>
               </div>
             </div>
 
             <div className="space-y-6 text-gray-600 leading-relaxed text-lg">
               <p>
-                Abidunnisa Begum, fondly known as “SQL Ma'am” by her students, is the Founder of CourseKiya, an EdTech platform built to make learning truly career-driven and outcome-focused. With years of experience in data analytics, product management, and education, she brings a unique blend of technical expertise and a deep understanding of how people learn best.
+                We're Abidunnisa Begum and Shaik Dadavalli (DV) — co-founders of CourseKiya, an EdTech platform built to make learning truly career-driven and outcome-focused.
               </p>
               <p>
-                Her journey began with a simple goal — to bridge the gap between theoretical knowledge and real-world application. Over the years, she has trained and mentored hundreds of learners from non-technical backgrounds, helping them build confidence, gain clarity, and successfully transition into tech and business roles.
+                When we started CourseKiya, we saw a clear gap — people were learning a lot, but not learning what actually gets them hired. That's where our mission began: to bridge the distance between theory and real-world application through practical, hands-on learning.
               </p>
               <p>
-                Abidunnisa believes that education should empower individuals to think critically, solve problems, and create opportunities for themselves. Guided by her philosophy that real learning starts when theory ends, she ensures every CourseKiya program focuses on practical exposure, hands-on projects, and personalized guidance.
+                Together, we bring a mix of technical depth and strategic thinking. With experience in data analytics, product management, business operations, and education, we've mentored hundreds of learners from non-technical backgrounds, helping them build confidence and successfully transition into tech and business roles.
               </p>
               <p>
-                Through CourseKiya, she continues to inspire learners to go beyond rote learning — to explore, experiment, and excel in the ever-evolving world of technology and business.
+                At CourseKiya, we believe education should do more than just teach — it should transform. That's why every program we design focuses on critical thinking, problem-solving, and real-world projects that help learners build tangible career outcomes.
               </p>
-            </div>
-
-            <div className="mt-12 pt-8 border-t border-gray-200">
-              <h4 className="font-bold text-gray-900 mb-4">Credentials & Achievements</h4>
-              <div className="grid md:grid-cols-2 gap-4">
-                <div className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-blue-600 rounded-full mt-2"></div>
-                  <p className="text-gray-600">MBA from Stanford University</p>
-                </div>
-                <div className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-blue-600 rounded-full mt-2"></div>
-                  <p className="text-gray-600">Former VP at Tech Education Corp</p>
-                </div>
-                <div className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-blue-600 rounded-full mt-2"></div>
-                  <p className="text-gray-600">Published author of 3 books on learning</p>
-                </div>
-                <div className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-blue-600 rounded-full mt-2"></div>
-                  <p className="text-gray-600">TEDx speaker on education innovation</p>
-                </div>
-              </div>
+              <p>
+                For us, CourseKiya isn't just a platform — it's a movement to inspire people to explore, experiment, and grow into confident professionals ready to thrive in the ever-evolving world of tech and business.
+              </p>
             </div>
           </div>
         </div>
@@ -227,7 +155,7 @@ export const HeroSection: React.FC<{ courses: Course[] }> = ({ courses }) => {
             Discover our comprehensive range of courses designed to help you master new skills and advance your career
           </p>
           <div className="flex items-end justify-end mb-6">
-            <button className="text-sm font-medium text-blue-600 hover:text-blue-500 flex items-center">
+            <button onClick={() => push('/courses')} className="text-sm font-medium text-blue-600 hover:text-blue-500 flex items-center">
               View All <ChevronRight size={16} className="ml-1" />
             </button>
           </div>

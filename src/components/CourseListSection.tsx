@@ -1,15 +1,12 @@
 import React, { useState } from 'react';
-import { Heart, Search, ShoppingCart, User, Menu, X, Star, PlayCircle, BookOpen, Clock, BarChart2, ChevronRight, ChevronLeft, MapPin, Mail, Phone } from 'lucide-react';
+import { ChevronRight } from 'lucide-react';
 import { Course, CourseCard, Timeline } from '@components';
-import { RenderPage } from '../../pages/RenderPage';
+import { useNavigate } from 'react-router-dom';
 
 export const CourseListSection: React.FC<{ title: string; courses: Course[], timeline: boolean, viewAllCheck: boolean }> = ({ title, courses, timeline, viewAllCheck }) => {
 
   const [currentTimelineTab, setCurrentTimelineTab] = useState<string>('all');
-
-  const handleViewAllClick = () => {
-    <RenderPage title={title} courses={courses} categories={undefined} currentPage='courses' />
-  };
+  const push = useNavigate();
 
   return (
     <section className="py-16 bg-gray-50">
@@ -20,16 +17,38 @@ export const CourseListSection: React.FC<{ title: string; courses: Course[], tim
           </h2>
           {timeline && <Timeline setTab={setCurrentTimelineTab} />}
           {viewAllCheck &&
-            <button onClick={() => handleViewAllClick()} className="text-sm font-medium text-blue-600 hover:text-blue-500 flex items-center">
+            <button onClick={() => push('/courses')} className="text-sm font-medium text-blue-600 hover:text-blue-500 flex items-center">
               View All <ChevronRight size={16} className="ml-1" />
             </button>
           }
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-          {(currentTimelineTab === "all" ? courses : courses?.filter((c: { status: string; }) => c.status === currentTimelineTab))?.map((course) => (
-            <CourseCard key={course?.course_id} course={course} />
-          ))}
-        </div>
+        {courses?.length > 0 ? (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            {(currentTimelineTab === "all" ? courses : courses?.filter((c: { status: string; }) => c.status === currentTimelineTab))?.map((course) => (
+              <CourseCard key={course?.course_id} course={course} />
+            ))}
+          </div>
+        ) : (
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {[...Array(8)].map((_, i) => (
+              <div
+                key={i}
+                className="bg-white shadow-md rounded-2xl overflow-hidden animate-pulse"
+              >
+                <div className="h-40 bg-gray-200"></div>
+                <div className="p-4 space-y-3">
+                  <div className="h-4 bg-gray-200 rounded w-2/3"></div>
+                  <div className="h-3 bg-gray-200 rounded w-1/2"></div>
+                  <div className="h-3 bg-gray-200 rounded w-1/3"></div>
+                  <div className="flex items-center justify-between pt-3">
+                    <div className="h-4 bg-gray-200 rounded w-1/4"></div>
+                    <div className="h-4 bg-gray-200 rounded-full w-6"></div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
       </div>
     </section>
   );

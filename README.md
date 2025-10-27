@@ -1,4 +1,4 @@
-# Coursekiya Clone (Next.js + TypeScript + Postgres)
+# Coursekiya (Next.js + TypeScript + Postgres)
 
 ## Quick start
 1. Install deps: `npm install`

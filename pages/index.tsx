@@ -1,24 +1,24 @@
 import React, { useState } from 'react';
-import { Heart, Search, ShoppingCart, User, Menu, X, Star, PlayCircle, BookOpen, Clock, BarChart2, ChevronRight, ChevronLeft, MapPin, Mail, Phone } from 'lucide-react';
-import { Header, Footer, HeroSection, CategoriesSection, Category, Course, CourseListSection, InstructorCTA, Instructor } from '@components';
-import { RenderPage } from './RenderPage';
+import * as LucideIcons from "lucide-react";
+import { Category, Course, Instructor } from '@components';
 import { dataanalyticscoursecard, datasciencecoursecard, powerbicoursecard, pythoncoursecard, sqlcoursecard, tableaucoursecard } from 'public';
+import HomePage from './Home';
 
 const mockInstructors: Record<string, Instructor> = {
   'inst-1': {
     instructor_id: 'inst-1',
     name: 'Abidunnisa',
-    avatarUrl: 'https://media.licdn.com/dms/image/v2/D5603AQHD7papk42fYA/profile-displayphoto-crop_800_800/B56ZhgZx_hHcAI-/0/1753964029192?e=1762992000&v=beta&t=B_T_IhUTBEl3phvrSHTrkj1iGdF-nKj228Ecx1BVyko',
+    image_url: 'https://media.licdn.com/dms/image/v2/D5603AQHD7papk42fYA/profile-displayphoto-crop_800_800/B56ZhgZx_hHcAI-/0/1753964029192?e=1762992000&v=beta&t=B_T_IhUTBEl3phvrSHTrkj1iGdF-nKj228Ecx1BVyko',
     bio: 'Software Developer & Teaching modern web tech.'
   },
 };
 
 const mockCategories: Category[] = [
-  { category_id: 'cat-1', name: 'Programming & Development', icon: BarChart2 },
-  { category_id: 'cat-2', name: 'Design', icon: PlayCircle },
-  { category_id: 'cat-3', name: 'Data Analytics & Business Intelligence', icon: BookOpen },
-  { category_id: 'cat-4', name: 'Data Science & Management', icon: Clock },
-  { category_id: 'cat-5', name: 'IT & Software', icon: User },
+  { category_id: 'cat-1', name: 'Programming & Development', icon: LucideIcons.BarChart2 },
+  { category_id: 'cat-2', name: 'Design', icon: LucideIcons.PlayCircle },
+  { category_id: 'cat-3', name: 'Data Analytics & Business Intelligence', icon: LucideIcons.BookOpen },
+  { category_id: 'cat-4', name: 'Data Science & Management', icon: LucideIcons.Clock },
+  { category_id: 'cat-5', name: 'IT & Software', icon: LucideIcons.User },
 ];
 
 const mockCourses: Course[] = [
@@ -124,14 +124,10 @@ const mockCourses: Course[] = [
 const App: React.FC = () => {
   const [courses, setCourses] = useState<Course[]>(mockCourses);
   const [categories, setCategories] = useState<Category[]>(mockCategories);
-  const [currentPage, setCurrentPage] = useState('home');
-  const title = "";
 
   return (
     <div className="font-sans antialiased text-gray-900 bg-white">
-      <Header onNavigate={setCurrentPage} currentPage={currentPage} />
-      <RenderPage categories={categories} courses={courses} title={title} currentPage={currentPage} />
-      <Footer />
+      <HomePage categories={categories} courses={courses} />
     </div>
   );
 };

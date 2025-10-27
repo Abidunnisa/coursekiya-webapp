@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
-import { Heart, Search, ShoppingCart, User, Menu, X, Star, PlayCircle, BookOpen, Clock, BarChart2, ChevronRight, ChevronLeft, MapPin, Mail, Phone } from 'lucide-react';
+import React from 'react';
+import { Heart } from 'lucide-react';
 import { Instructor } from '@components';
+import { useNavigate } from 'react-router-dom';
 
 export interface Course {
   course_id: string;
@@ -20,9 +21,14 @@ export interface Course {
 }
 
 export const CourseCard: React.FC<{ course: Course }> = ({ course }) => {
+  const push = useNavigate();
   return (
     <div className="group bg-white rounded-lg shadow-md overflow-hidden flex flex-col h-full transition-all duration-300 ease-in-out hover:shadow-xl hover:-translate-y-1">
-      <a href="#" className="block">
+      <div onClick={() => push(`/courses/${course.course_id}`, {
+        state: {
+          course: course,
+        },
+      })} className="block cursor-pointer">
         <div className="relative">
           <img className="object-fill" src={course?.image_url} alt={course?.title} />
           <div className="absolute top-2 left-2 bg-white px-2 py-0.5 rounded-full text-xs font-semibold text-blue-600">
@@ -39,20 +45,20 @@ export const CourseCard: React.FC<{ course: Course }> = ({ course }) => {
             <StarRating rating={course?.rating} />
             <span className="text-sm text-gray-500 ml-2">({course?.reviewCount.toLocaleString()})</span>
           </div> */}
-          
+
           <div className="mt-auto flex justify-between items-center">
-             <div className="flex items-baseline">
-                <span className="text-xl font-bold text-gray-900">₹{course?.discounted_price}</span>
-                {course?.original_price && (
-                  <span className="ml-2 text-sm text-gray-500 line-through">₹{course?.original_price}</span>
-                )}
-             </div>
-             <button className="p-2 rounded-full text-blue-600 bg-blue-50 hover:bg-blue-100 transition-colors">
-                <Heart size={20} />
-             </button>
+            <div className="flex items-baseline">
+              <span className="text-xl font-bold text-gray-900">₹{course?.discounted_price}</span>
+              {course?.original_price && (
+                <span className="ml-2 text-sm text-gray-500 line-through">₹{course?.original_price}</span>
+              )}
+            </div>
+            <button className="p-2 rounded-full text-blue-600 bg-blue-50 hover:bg-blue-100 transition-colors">
+              <Heart size={20} />
+            </button>
           </div>
         </div>
-      </a>
+      </div>
     </div>
   );
 };

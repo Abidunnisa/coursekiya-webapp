@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
-import { Heart, Search, ShoppingCart, User, Menu, X, Star, PlayCircle, BookOpen, Clock, BarChart2, ChevronRight, ChevronLeft, MapPin, Mail, Phone } from 'lucide-react';
-import { Header, Footer, HeroSection, CategoriesSection, Category, Course, CourseListSection, InstructorCTA, Instructor } from '@components';
+import React from 'react';
+import { HeroSection, CategoriesSection, Category, Course, InstructorCTA } from '@components';
 import ContactUs from './ContactUs';
 
 export const HomePage: React.FC<{ categories: Category[], courses: Course[] }> = ({ categories, courses }) => {

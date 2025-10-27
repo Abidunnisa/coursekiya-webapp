@@ -11,3 +11,4 @@ export type { Instructor } from './InstructorEnquire';
 export { Rating } from './Rating';
 export { Timeline } from './TimeLine';
 export { ComingSoon } from './ComingSoon';
+export { ScrollToTop } from './ScrollToTop';

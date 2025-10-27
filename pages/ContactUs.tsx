@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Course } from "@components";
+import { useLocation } from "react-router-dom";
 
 export const ContactUs: React.FC<{ courses: Course[] }> = ({courses}) => {
   const [formData, setFormData] = useState({
@@ -10,6 +11,13 @@ export const ContactUs: React.FC<{ courses: Course[] }> = ({courses}) => {
     location: "In India",
     comments: "",
   });
+
+  const location = useLocation();
+
+  useEffect(() => {
+  if (location?.state?.selectedCourse) {
+    setFormData({...formData, ['course']: location?.state?.selectedCourse})
+  }}, [location])
 
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
@@ -22,7 +30,6 @@ export const ContactUs: React.FC<{ courses: Course[] }> = ({courses}) => {
     e.preventDefault();
     setLoading(true);
     try {
-      // 👇 Replace with your deployed Google Apps Script URL
       const scriptURL = "https://script.google.com/macros/s/AKfycbwObm2fJZtXd-gYWpz_K7aScdHnSTADiqSBybe1T--Df_6Ok9o44pw_YalNeKvjPZLYMQ/exec";
       await fetch(scriptURL, {
         method: "POST",
@@ -116,7 +123,7 @@ export const ContactUs: React.FC<{ courses: Course[] }> = ({courses}) => {
                 name="location"
                 value={formData?.location}
                 onChange={handleChange}
-                className="mt-1 block w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-blue-500 focus:border-blue-500"
+                className="mt-1 block w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-blue-500 focus:border-blue-500 cursor-pointer"
               >
                 <option>In India</option>
                 <option>Outside India</option>
@@ -133,7 +140,7 @@ export const ContactUs: React.FC<{ courses: Course[] }> = ({courses}) => {
                 value={formData?.course}
                 onChange={handleChange}
                 required
-                className="mt-1 block w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-blue-500 focus:border-blue-500"
+                className="mt-1 block w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-blue-500 focus:border-blue-500 cursor-pointer"
               >
                 <option value="">Select a course</option>
                 {courses?.map((c) => (

@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Heart, Search, ShoppingCart, User, Menu, X, Star, PlayCircle, BookOpen, Clock, BarChart2, ChevronRight, ChevronLeft, MapPin, Mail, Phone } from 'lucide-react';
+import React from 'react';
+import { Star } from 'lucide-react';
 
 export const Rating: React.FC<{ rating: number }> = ({ rating }) => {
   const fullStars = Math?.floor(rating);
