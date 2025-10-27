@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "bcrypt": "5.1.0",
+    "dotenv": "^17.2.3",
     "jsonwebtoken": "9.0.0",
     "lucide-react": "^0.548.0",
     "next": "14.0.0",
@@ -22,14 +23,16 @@
   },
   "devDependencies": {
     "@types/bcrypt": "5.0.0",
+    "@types/express": "^5.0.4",
     "@types/jsonwebtoken": "9.0.0",
-    "@types/node": "20.x",
+    "@types/node": "^24.9.1",
     "@types/pg": "^8.15.5",
     "@types/react": "18.x",
     "autoprefixer": "10.x",
     "gh-pages": "^6.3.0",
     "postcss": "8.x",
     "tailwindcss": "3.x",
-    "typescript": "5.x"
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.9.3"
   }
 }

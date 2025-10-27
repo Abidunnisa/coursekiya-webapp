@@ -27,7 +27,7 @@ export const CourseListSection: React.FC<{ title: string; courses: Course[], tim
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {(currentTimelineTab === "all" ? courses : courses?.filter((c: { status: string; }) => c.status === currentTimelineTab))?.map((course) => (
-            <CourseCard key={course?.id} course={course} />
+            <CourseCard key={course?.course_id} course={course} />
           ))}
         </div>
       </div>

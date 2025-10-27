@@ -46,7 +46,7 @@ export const ContactUs: React.FC<{ courses: Course[] }> = ({courses}) => {
   };
 
   return (
-    <section className="min-h-screen bg-gray-50 py-4 px-4 flex flex-col justify-center items-center gap-4">
+    <section className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50 py-4 px-4 flex flex-col justify-center items-center gap-4">
       <div>
         <h1 className="text-4xl font-bold text-center text-gray-900 mb-6"> Contact Us</h1>
       </div>
@@ -137,7 +137,7 @@ export const ContactUs: React.FC<{ courses: Course[] }> = ({courses}) => {
               >
                 <option value="">Select a course</option>
                 {courses?.map((c) => (
-                  <option key={c?.id} value={c?.title}>
+                  <option key={c?.course_id} value={c?.title}>
                     {c?.title}
                   </option>
                 ))}

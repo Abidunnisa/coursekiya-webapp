@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Heart, Search, ShoppingCart, User, Menu, X, Star, PlayCircle, BookOpen, Clock, BarChart2, ChevronRight, ChevronLeft, MapPin, Mail, Phone } from 'lucide-react';
 
 export interface Category {
-  id: string;
+  category_id: string;
   name: string;
   icon: React.ElementType;
 }
@@ -16,9 +16,9 @@ export const CategoriesSection: React.FC<{ categories: Category[] }> = ({ catego
         </h2>
         <div className="flex flex-wrap gap-4 md:gap-6 items-center justify-center">
           {categories?.map((category) => (
-            <div className="sm:w-1/2 md:w-1/4 lg:w-1/7 flex-1 min-w-[160px] max-w-[180px] sm:min-w-[140px] md:min-w-[160px]" key={category?.id}>
+            <div className="sm:w-1/2 md:w-1/4 lg:w-1/7 flex-1 min-w-[160px] max-w-[190px] sm:min-w-[140px] md:min-w-[160px]" key={category?.category_id}>
               <a
-                key={category?.id}
+                key={category?.category_id}
                 href="#"
                 className="h-40 w-45 group flex flex-col items-center p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-all duration-300 ease-in-out hover:-translate-y-1"
               >

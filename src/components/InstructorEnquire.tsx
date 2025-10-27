@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Heart, Search, ShoppingCart, User, Menu, X, Star, PlayCircle, BookOpen, Clock, BarChart2, ChevronRight, ChevronLeft, MapPin, Mail, Phone } from 'lucide-react';
 
 export interface Instructor {
-  id: string;
+  instructor_id: string;
   name: string;
   avatarUrl: string;
   bio: string;

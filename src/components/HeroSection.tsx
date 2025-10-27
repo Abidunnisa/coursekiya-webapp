@@ -81,21 +81,6 @@ export const HeroSection: React.FC<{ courses: Course[] }> = ({ courses }) => {
               <p className="text-xl text-gray-600 leading-relaxed">
                 We believe in making quality education accessible to everyone. Our platform is designed to help you achieve your learning goals with expert-led courses.
               </p>
-
-              <div className="grid grid-cols-3 gap-6 pt-6">
-                <div>
-                  <div className="text-3xl font-bold text-blue-600">1000+</div>
-                  <div className="text-sm text-gray-600">Students</div>
-                </div>
-                <div>
-                  <div className="text-3xl font-bold text-blue-600">50+</div>
-                  <div className="text-sm text-gray-600">Courses</div>
-                </div>
-                <div>
-                  <div className="text-3xl font-bold text-blue-600">4.8★</div>
-                  <div className="text-sm text-gray-600">Rating</div>
-                </div>
-              </div>
             </div>
 
             {/* <div className="relative" style={{ transform: translateY(${ scrollY * - 0.05}px)}}> */}
@@ -105,7 +90,7 @@ export const HeroSection: React.FC<{ courses: Course[] }> = ({ courses }) => {
               </div>
 
               <div className="text-center">
-                <h3 className="text-2xl font-bold text-gray-900 mb-2">Abidunnisa</h3>
+                <h3 className="text-2xl font-bold text-gray-900 mb-2">Abidunnisa Begum</h3>
                 <p className="text-blue-600 font-medium mb-4">Founder & CEO</p>
                 <p className="text-gray-600 leading-relaxed">
                   "My mission is to democratize education and make learning accessible to everyone, everywhere."
@@ -190,19 +175,22 @@ export const HeroSection: React.FC<{ courses: Course[] }> = ({ courses }) => {
 
               <div>
                 <h2 className="text-3xl font-bold text-gray-900 mb-2">Meet the Founder</h2>
-                <p className="text-blue-600 font-medium">Abidunnisa - Educator & Entrepreneur</p>
+                <p className="text-blue-600 font-medium">Abidunnisa Begum - Educator & Entrepreneur</p>
               </div>
             </div>
 
             <div className="space-y-6 text-gray-600 leading-relaxed text-lg">
               <p>
-                With over 15 years of experience in education and technology, John Anderson founded this platform with a simple yet powerful vision: to make quality education accessible to everyone, regardless of their background or location.
+                Abidunnisa Begum, fondly known as “SQL Ma'am” by her students, is the Founder of CourseKiya, an EdTech platform built to make learning truly career-driven and outcome-focused. With years of experience in data analytics, product management, and education, she brings a unique blend of technical expertise and a deep understanding of how people learn best.
               </p>
               <p>
-                After working with leading educational institutions and tech companies, John recognized the gap between traditional education systems and the evolving needs of modern learners. This insight led to the creation of our platform in 2020.
+                Her journey began with a simple goal — to bridge the gap between theoretical knowledge and real-world application. Over the years, she has trained and mentored hundreds of learners from non-technical backgrounds, helping them build confidence, gain clarity, and successfully transition into tech and business roles.
               </p>
               <p>
-                Today, we're proud to have helped thousands of students transform their careers and achieve their learning goals. Our commitment to excellence and innovation continues to drive everything we do.
+                Abidunnisa believes that education should empower individuals to think critically, solve problems, and create opportunities for themselves. Guided by her philosophy that real learning starts when theory ends, she ensures every CourseKiya program focuses on practical exposure, hands-on projects, and personalized guidance.
+              </p>
+              <p>
+                Through CourseKiya, she continues to inspire learners to go beyond rote learning — to explore, experiment, and excel in the ever-evolving world of technology and business.
               </p>
             </div>
 
@@ -245,7 +233,7 @@ export const HeroSection: React.FC<{ courses: Course[] }> = ({ courses }) => {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {courses?.map((course) => (
-              <CourseCard key={course?.id} course={course} />
+              <CourseCard key={course?.course_id} course={course} />
             ))}
           </div>
         </div>
