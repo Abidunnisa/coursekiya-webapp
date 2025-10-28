@@ -3,7 +3,7 @@ import { ChevronRight } from 'lucide-react';
 import { Course, CourseCard, Timeline } from '@components';
 import { useNavigate } from 'react-router-dom';
 
-export const CourseListSection: React.FC<{ title: string; courses: Course[], timeline: boolean, viewAllCheck: boolean }> = ({ title, courses, timeline, viewAllCheck }) => {
+export const CourseListSection: React.FC<{ title: string; courses: Course[], category: string | null, timeline: boolean, viewAllCheck: boolean }> = ({ title, courses, category, timeline, viewAllCheck }) => {
 
   const [currentTimelineTab, setCurrentTimelineTab] = useState<string>('all');
   const push = useNavigate();
@@ -22,13 +22,19 @@ export const CourseListSection: React.FC<{ title: string; courses: Course[], tim
             </button>
           }
         </div>
-        {courses?.length > 0 ? (
+        {courses?.length > 0 ? category !== null ? (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            {(courses?.filter((c: { category: string; }) => c?.category === category))?.map((course) => (
+              <CourseCard key={course?.course_id} course={course} />
+            ))}
+          </div>
+        ) :(
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {(currentTimelineTab === "all" ? courses : courses?.filter((c: { status: string; }) => c.status === currentTimelineTab))?.map((course) => (
               <CourseCard key={course?.course_id} course={course} />
             ))}
           </div>
-        ) : (
+        ): (
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {[...Array(8)].map((_, i) => (
               <div

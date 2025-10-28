@@ -1,4 +1,6 @@
 import React from 'react';
+import { teachingstudio } from 'public';
+import { useNavigate } from 'react-router-dom';
 
 export interface Instructor {
   instructor_id: string;
@@ -8,6 +10,7 @@ export interface Instructor {
 }
 
 export const InstructorCTA: React.FC = () => {
+  const push = useNavigate();
   return (
     <section className="bg-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
@@ -20,18 +23,18 @@ export const InstructorCTA: React.FC = () => {
               <p className="mt-4 text-lg leading-6 text-blue-100">
                 Share your knowledge with millions of students around the world. We provide the tools and skills to teach what you love.
               </p>
-              <a
-                href="#"
-                className="mt-8 bg-white border border-transparent rounded-md shadow-md px-6 py-3 inline-flex items-center text-base font-medium text-blue-600 hover:bg-gray-50"
+              <div
+                onClick={() => push('/teach')}
+                className="mt-8 bg-white border border-transparent rounded-md shadow-md px-6 py-3 inline-flex items-center text-base font-medium text-blue-600 hover:bg-gray-50 cursor-pointer"
               >
                 Start teaching today
-              </a>
+              </div>
             </div>
           </div>
           <div className="-mt-6 aspect-w-5 aspect-h-3 md:aspect-w-2 md:aspect-h-1 lg:aspect-w-auto lg:aspect-h-auto">
             <img
               className="transform translate-x-6 translate-y-6 rounded-md object-cover object-left-top sm:translate-x-16 lg:translate-y-20"
-              src="https://placehold.co/800x600/E0E7FF/4338CA?text=Your+Teaching+Studio"
+              src={teachingstudio.src}
               alt="Instructor teaching"
             />
           </div>
