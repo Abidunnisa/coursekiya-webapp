@@ -2,18 +2,21 @@ import React, { useEffect, useState } from "react";
 import { Course } from "@types";
 import { useLocation } from "react-router-dom";
 import { useList } from "@refinedev/core";
+import { ScrollToTop } from "@components/ScrollToTop";
 
 export const ContactUs: React.FC = () => {
   const [formData, setFormData] = useState({
-    course: "",
     name: "",
     phone: "",
     email: "",
     location: "In India",
+    type: "course",
+    title: "",
     comments: "",
   });
 
   const location = useLocation();
+  const [type, setType] = useState<string>('course');
 
   const { result: { data: coursesData }, query: { isLoading: coursesLoading } } = useList<Course>({
     resource: 'api/courses',
@@ -22,9 +25,17 @@ export const ContactUs: React.FC = () => {
     },
   });
 
+  const { result: { data: webinarsData }, query: { isLoading: webinarsLoading } } = useList<Course>({
+    resource: 'api/webinars',
+    pagination: {
+      mode: 'off',
+    },
+  });
+
   useEffect(() => {
     if (location?.state?.selectedCourse) {
-      setFormData({ ...formData, ['course']: location?.state?.selectedCourse })
+      setType(location?.state?.type)
+      setFormData({ ...formData, ['title']: location?.state?.selectedCourse })
     }
   }, [location])
 
@@ -46,11 +57,12 @@ export const ContactUs: React.FC = () => {
       });
       setSubmitted(true);
       setFormData({
-        course: "",
         name: "",
         phone: "",
         email: "",
         location: "In India",
+        type: "course",
+        title: "",
         comments: "",
       });
     } catch (error) {
@@ -72,9 +84,12 @@ export const ContactUs: React.FC = () => {
         </h1>
 
         {submitted ? (
+          <>
+          <ScrollToTop />
           <p className="text-green-600 text-center font-medium">
             ✅ Thank you! Your enquiry has been received.
           </p>
+          </>
         ) : (
           <form onSubmit={handleSubmit} className="space-y-4">
             {/* Name */}
@@ -139,21 +154,39 @@ export const ContactUs: React.FC = () => {
               </select>
             </div>
 
+            <div>
+              <label className="block text-sm font-medium text-gray-700">
+                Type
+              </label>
+              <select
+                name="type"
+                value={type}
+                onChange={(e) => {
+                  handleChange
+                  setType(e.target.value)
+                }}
+                className="mt-1 block w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-blue-500 focus:border-blue-500 cursor-pointer"
+              >
+                <option>Course</option>
+                <option>Webinar</option>
+              </select>
+            </div>
+
             {/* Course */}
             <div>
               <label className="block text-sm font-medium text-gray-700">
-                Course
+                {type.charAt(0).toUpperCase() + type.slice(1)}
               </label>
               <select
-                name="course"
-                value={formData?.course}
+                name="title"
+                value={formData?.title}
                 onChange={handleChange}
                 required
                 className="mt-1 block w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-blue-500 focus:border-blue-500 cursor-pointer"
               >
-                <option value="">Select a course</option>
-                {coursesData?.map((c) => (
-                  <option key={c?.course_id} value={c?.title}>
+                <option value="">{`Select a ${type}`}</option>
+                {(type === 'course' ? coursesData : webinarsData)?.map((c) => (
+                  <option key={c?.title} value={c?.title}>
                     {c?.title}
                   </option>
                 ))}

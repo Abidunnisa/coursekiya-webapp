@@ -1,5 +1,5 @@
 import * as LucideIcons from "lucide-react";
-import { Category, Course, Instructor, Outcomes, Topic } from '@components';
+import { Category, Course, Instructor, Outcomes, Topic } from '@types';
 import { dataanalyticscoursecard, datasciencecoursecard, powerbicoursecard, pythoncoursecard, sqlcoursecard, tableaucoursecard } from 'public';
 
 export const mockInstructors: Record<string, Instructor> = {

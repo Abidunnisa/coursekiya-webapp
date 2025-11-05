@@ -167,7 +167,7 @@ export const WebinarDetailsPage: React.FC = () => {
                 <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-3/4">
                   <button
                     onClick={() =>
-                      push("/contact-us", { state: { selectedCourse: webinar?.title } })
+                      push("/contact-us", { state: { type: 'webinar', selectedCourse: webinar?.title } })
                     }
                     className="w-full sm:w-auto flex-1 border border-blue-600 text-blue-600 font-semibold py-3 rounded-lg hover:bg-blue-50 transition text-center"
                   >
@@ -267,7 +267,7 @@ export const WebinarDetailsPage: React.FC = () => {
             <div>
               <button
                 onClick={() =>
-                  push("/contact-us", { state: { selectedCourse: webinar?.title } })
+                  push("/contact-us", { state: { type: 'webinar', selectedCourse: webinar?.title } })
                 }
                 className="mt-3 w-full border border-blue-600 text-blue-600 font-semibold py-3 rounded-lg hover:bg-blue-50 transition"
               >
@@ -337,7 +337,7 @@ export const WebinarDetailsPage: React.FC = () => {
           </div>
           <button
             onClick={() =>
-              push("/contact-us", { state: { selectedCourse: webinar?.title } })
+              push("/contact-us", { state: { type: 'webinar', selectedCourse: webinar?.title } })
             }
             className="bg-blue-600 text-white font-semibold px-6 py-2 rounded-lg hover:bg-blue-700 transition"
           >

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Course, ComingSoon } from '@components';
+import { ComingSoon } from '@components';
 
 export const DigitalProductsPage: React.FC = () => {
   return (
