@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Clock, PlayCircle, Star } from "lucide-react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { Course, CourseContents, Topic, Outcomes, CourseDetailsPageSkeleton } from "@components";
@@ -9,6 +9,23 @@ export const CourseDetailsPage: React.FC = () => {
   const location = useLocation();
   const [course, setCourse] = useState<Course>(location.state?.course);
   const push = useNavigate();
+  const refAmountSection = useRef(null);
+  const [isAmountSectionVisible, setIsAmountSectionVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsAmountSectionVisible(entry.isIntersecting);
+      },
+      { threshold: 0.3 } // triggers when 30% of element is visible
+    );
+
+    if (refAmountSection.current) observer.observe(refAmountSection.current);
+
+    return () => {
+      if (refAmountSection.current) observer.unobserve(refAmountSection.current);
+    };
+  }, []);
 
   useEffect(() => {
     if (location.state?.course) {
@@ -116,7 +133,7 @@ export const CourseDetailsPage: React.FC = () => {
               {/* Price + Action Buttons */}
               <div className="bg-white rounded-lg shadow-md p-4 mb-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
                 {/* Price Section */}
-                <div className="flex-1">
+                <div  ref={refAmountSection} id="AmountSection" className="flex-1">
                   {course?.original_price && course?.discounted_price.toString() !== "0" ? (
                     <div>
                       <p className="text-2xl font-bold text-gray-900">
@@ -287,44 +304,46 @@ export const CourseDetailsPage: React.FC = () => {
       </div>
 
       {/* Sticky Bottom Bar (Mobile Only) */}
-      <div className="lg:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 shadow-md p-4 flex items-center justify-between z-50">
-        <div>
-          {course?.original_price && course?.discounted_price.toString() !== "0" ? (
-            <div>
-              <p className="text-2xl font-bold text-gray-900">
-                ₹ {course?.discounted_price}
-              </p>
-              <div className="flex gap-4 items-center">
-                <p className="text-sm text-gray-500 line-through">
-                  ₹ {course?.original_price}
+      {!isAmountSectionVisible && (
+        <div className="lg:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 shadow-md p-4 flex items-center justify-between z-50">
+          <div>
+            {course?.original_price && course?.discounted_price.toString() !== "0" ? (
+              <div>
+                <p className="text-2xl font-bold text-gray-900">
+                  ₹ {course?.discounted_price}
                 </p>
-                <span className="text-green-600 font-semibold">
-                  {Math.round(
-                    ((+course?.original_price - +course?.discounted_price) /
-                      +course?.original_price) *
-                    100
-                  )}
-                  % OFF
-                </span>
+                <div className="flex gap-4 items-center">
+                  <p className="text-sm text-gray-500 line-through">
+                    ₹ {course?.original_price}
+                  </p>
+                  <span className="text-green-600 font-semibold">
+                    {Math.round(
+                      ((+course?.original_price - +course?.discounted_price) /
+                        +course?.original_price) *
+                      100
+                    )}
+                    % OFF
+                  </span>
+                </div>
               </div>
-            </div>
-          ) : course?.original_price && course?.original_price.toString() !== "0" ? (
-            <p className="text-2xl font-bold text-gray-900">
-              ₹ {course?.original_price}
-            </p>
-          ) : (
-            <p className="text-2xl text-green-600 font-semibold">Free</p>
-          )}
+            ) : course?.original_price && course?.original_price.toString() !== "0" ? (
+              <p className="text-2xl font-bold text-gray-900">
+                ₹ {course?.original_price}
+              </p>
+            ) : (
+              <p className="text-2xl text-green-600 font-semibold">Free</p>
+            )}
+          </div>
+          <button
+            onClick={() =>
+              push("/contact-us", { state: { selectedCourse: course?.title } })
+            }
+            className="bg-blue-600 text-white font-semibold px-6 py-2 rounded-lg hover:bg-blue-700 transition"
+          >
+            Enquire Now
+          </button>
         </div>
-        <button
-          onClick={() =>
-            push("/contact-us", { state: { selectedCourse: course?.title } })
-          }
-          className="bg-blue-600 text-white font-semibold px-6 py-2 rounded-lg hover:bg-blue-700 transition"
-        >
-          Enquire Now
-        </button>
-      </div>
+      )}
     </div>
   );
 

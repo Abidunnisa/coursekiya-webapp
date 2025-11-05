@@ -66,7 +66,7 @@ export const CourseContents: React.FC<CourseContentsProps> = ({ topics }) => {
                 <span>
                   {topic.name}
                 </span>
-                < ChevronUp className={`w-5 h-5 text-gray-500 transition-transform duration-300 ${isTopicOpen ? "rotate-0" : "rotate-180"}`} />
+                < ChevronUp className={`flex-shrink-0 w-5 h-5 text-gray-500 transition-transform duration-300 ${isTopicOpen ? "rotate-0" : "rotate-180"}`} />
               </button>
 
               <div
@@ -83,7 +83,7 @@ export const CourseContents: React.FC<CourseContentsProps> = ({ topics }) => {
                           className="w-full flex justify-between items-center px-5 py-3 text-left text-gray-700"
                         >
                           <span>{sub.name}</span>
-                          < ChevronUp className={`w-4 h-4 text-gray-500 transition-transform duration-300 ${isSubOpen ? "rotate-0" : "rotate-180"}`} />
+                          < ChevronUp className={`flex-shrink-0 w-4 h-4 text-gray-500 transition-transform duration-300 ${isSubOpen ? "rotate-0" : "rotate-180"}`} />
                         </button>
 
                         <div
