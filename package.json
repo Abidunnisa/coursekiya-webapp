@@ -17,15 +17,18 @@
     "@refinedev/simple-rest": "^6.0.1",
     "@types/node": "^24.10.0",
     "@types/react": "^19.2.2",
+    "autoprefixer": "10.x",
     "bcrypt": "5.1.0",
     "dotenv": "^17.2.3",
     "jsonwebtoken": "9.0.0",
     "lucide-react": "^0.548.0",
     "next": "14.0.0",
     "pg": "8.11.0",
+    "postcss": "8.x",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-router-dom": "^7.9.4",
+    "tailwindcss": "3.x",
     "typescript": "^5.9.3"
   },
   "devDependencies": {
@@ -33,14 +36,7 @@
     "@types/express": "^5.0.4",
     "@types/jsonwebtoken": "9.0.0",
     "@types/pg": "^8.15.5",
-    "autoprefixer": "10.x",
     "gh-pages": "^6.3.0",
-    "postcss": "8.x",
-    "tailwindcss": "3.x",
     "ts-node-dev": "^2.0.0"
-  },
-  "resolutions": {
-    "@types/react": "18.2.73",
-    "@types/react-dom": "18.2.18"
   }
 }
