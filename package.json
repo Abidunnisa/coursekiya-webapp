@@ -1,5 +1,5 @@
 {
-  "name": "coursekiya-clone",
+  "name": "coursekiya-webapp",
   "version": "1.0.0",
   "private": true,
   "scripts": {
@@ -9,7 +9,8 @@
     "lint": "next lint",
     "export": "next build && next export",
     "predeploy": "yarn build",
-    "deploy": "gh-pages -d out"
+    "deploy": "gh-pages -d out",
+    "vercel-build": "yarn install --ignore-peer-deps && yarn build"
   },
   "dependencies": {
     "@dytesdk/react-ui-kit": "^3.0.8",
@@ -40,5 +41,9 @@
     "tailwindcss": "3.x",
     "ts-node-dev": "^2.0.0",
     "typescript": "^5.9.3"
+  },
+  "resolutions": {
+    "@types/react": "18.2.73",
+    "@types/react-dom": "18.2.18"
   }
 }
