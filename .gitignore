@@ -45,7 +45,6 @@ prisma/migrations/
 # Yarn / npm
 yarn-error.log
 package-lock.json
-yarn.lock
 
 # Optional: coverage if using tests
 coverage/
