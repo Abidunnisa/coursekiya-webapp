@@ -1,25 +1,25 @@
 import React, { useEffect, useState } from 'react';
 import { ChevronRight } from 'lucide-react';
-import { CourseCard, Timeline } from '@components';
-import { Course } from '@types';
+import { WebinarCard, Timeline } from '@components';
+import { Webinar } from '@types';
 import { useNavigate } from 'react-router-dom';
 
-export const CourseListSection: React.FC<{ title: string; courses: Course[], category: string | null, timeline: boolean, viewAllCheck: boolean, isLoading?: boolean }> = ({ title, courses, category, timeline, viewAllCheck, isLoading }) => {
+export const WebinarListSection: React.FC<{ title: string; webinars: Webinar[], category: string | null, timeline: boolean, viewAllCheck: boolean, isLoading: boolean }> = ({ title, webinars, category, timeline, viewAllCheck, isLoading }) => {
 
   const [currentTimelineTab, setCurrentTimelineTab] = useState<string>('all');
   const push = useNavigate();
-  const [filteredCourses, setFilteredCourses] = useState<Course[]>([]);
+  const [filteredWebinars, setFilteredWebinars] = useState<Webinar[]>([]);
 
   useEffect(() => {
     if (currentTimelineTab === "all") {
-      setFilteredCourses(courses);
+      setFilteredWebinars(webinars);
     } else {
-      const filtered = courses.filter(
+      const filtered = webinars.filter(
         (c: any) => c.status === currentTimelineTab
       );
-      setFilteredCourses(filtered);
+      setFilteredWebinars(filtered);
     }
-  }, [currentTimelineTab, courses]);
+  }, [currentTimelineTab, webinars]);
 
   return (
     <section className="pt-16 bg-gray-50">
@@ -30,35 +30,35 @@ export const CourseListSection: React.FC<{ title: string; courses: Course[], cat
           </h2>
           {timeline && <Timeline setTab={setCurrentTimelineTab} />}
           {viewAllCheck &&
-            <button onClick={() => push('/courses')} className="text-sm font-medium text-blue-600 hover:text-blue-500 flex items-center">
+            <button onClick={() => push('/webinars')} className="text-sm font-medium text-blue-600 hover:text-blue-500 flex items-center">
               View All <ChevronRight size={16} className="ml-1" />
             </button>
           }
         </div>
         {!isLoading ?
-          courses?.length > 0 ?
+          webinars?.length > 0 ?
             category !== null ? (
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                {(courses?.filter((c: { category: string; }) => c?.category === category))?.map((course) => (
-                  <CourseCard key={course?.course_id} course={course} />
+                {(webinars?.filter((c: { category: string; }) => c?.category === category))?.map((webinar) => (
+                  <WebinarCard key={webinar?.webinar_id} webinar={webinar} />
                 ))}
               </div>
             ) : (
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                {filteredCourses?.length > 0 ? (
-                  filteredCourses.map((course) => (
-                    <CourseCard key={course.course_id} course={course} />
+                {filteredWebinars?.length > 0 ? (
+                  filteredWebinars.map((webinar) => (
+                    <WebinarCard key={webinar.webinar_id} webinar={webinar} />
                   ))
                 ) : (
-                  <div className="col-span-full flex flex-col items-center justify-center pt-10 text-gray-700 ">
-                    <span className="text-lg font-medium">{`No ${currentTimelineTab !== 'all' ? currentTimelineTab.charAt(0).toUpperCase() + currentTimelineTab.slice(1) : ''} courses found`}</span>
+                  <div className="col-span-full flex flex-col items-center justify-center pt-10 text-gray-700">
+                    <span className="text-lg font-medium">{`No ${currentTimelineTab !== 'all' ? currentTimelineTab.charAt(0).toUpperCase() + currentTimelineTab.slice(1) : ''} webinars found`}</span>
                     <p className="text-sm text-gray-600 mt-1">Try a different category or filter</p>
                   </div>
                 )}
               </div>
             ) : (
-              <div className="col-span-full flex flex-col items-center justify-center pt-10 text-gray-700 ">
-                <span className="text-lg font-medium">{`No ${currentTimelineTab !== 'all' ? currentTimelineTab.charAt(0).toUpperCase() + currentTimelineTab.slice(1) : ''} courses found`}</span>
+              <div className="col-span-full flex flex-col items-center justify-center pt-10 text-gray-700">
+                <span className="text-lg font-medium">{`No ${currentTimelineTab !== 'all' ? currentTimelineTab.charAt(0).toUpperCase() + currentTimelineTab.slice(1) : ''} webinars found`}</span>
                 <p className="text-sm text-gray-600 mt-1">Try a different category or filter</p>
               </div>
             ) : (

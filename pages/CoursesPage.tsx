@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { Course, CourseListSection } from '@components';
+import { CourseListSection } from '@components';
+import { Course } from '@types';
 import { useLocation } from 'react-router-dom';
 import { useList } from '@refinedev/core';
 
@@ -13,6 +14,8 @@ export const Courses: React.FC = () => {
       mode: 'off',
     },
   });
+
+  console.log(coursesLoading  )
   
   return (
     <section className="py-16 bg-gray-50">
@@ -24,6 +27,7 @@ export const Courses: React.FC = () => {
             category={state?.category || null}
             timeline={!state?.viewall}
             viewAllCheck={state?.viewall || false}
+            isLoading={coursesLoading}
           />
         </main>
       </div>

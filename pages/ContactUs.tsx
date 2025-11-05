@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Course } from "@components";
+import { Course } from "@types";
 import { useLocation } from "react-router-dom";
 import { useList } from "@refinedev/core";
 

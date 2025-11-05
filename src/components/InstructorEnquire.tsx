@@ -2,13 +2,6 @@ import React from 'react';
 import { teachingstudio } from 'public';
 import { useNavigate } from 'react-router-dom';
 
-export interface Instructor {
-  instructor_id: string;
-  name: string;
-  image_url: string;
-  bio: string;
-}
-
 export const InstructorCTA: React.FC = () => {
   const push = useNavigate();
   return (

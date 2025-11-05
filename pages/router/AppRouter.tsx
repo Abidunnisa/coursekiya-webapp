@@ -2,9 +2,9 @@
 
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Courses from "../courses";
+import Courses from "../CoursesPage";
 import InstructorPage from "../Instructor";
-import Webinars from "../Webinars";
+import Webinars from "../WebinarsPage";
 import CourseDetailsPage from "../CourseDetailsPage";
 import ContactUs from "../ContactUs";
 import DigitalProductsPage from "../DigitalProducts";
@@ -18,6 +18,10 @@ import HomePage from "pages/Home";
 import { Refine } from "@refinedev/core";
 import dataProvider from "@refinedev/simple-rest";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import TermsOfUse from "pages/Termsofuse";
+import PrivacyPolicy from "pages/PrivacyPolicy";
+import RefundPolicy from "pages/RefundPolicy";
+import WebinarDetailsPage from "pages/WebinarDetailsPage";
 
 const API_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
 
@@ -41,9 +45,13 @@ export default function AppRouter({ Component, pageProps }: any) {
               <Route path="/digital-products" element={<DigitalProductsPage />} />
               <Route path="/teach" element={<InstructorPage />} />
               <Route path="/contact-us" element={<ContactUs />} />
+              <Route path="/termsofuse" element={<TermsOfUse />} />
+              <Route path="/privacypolicy" element={<PrivacyPolicy />} />
+              <Route path="/refundpolicy" element={<RefundPolicy />} />
 
               {/* Dynamic Route */}
               <Route path="/courses/:course_id/:course_name" element={<CourseDetailsPage />} />
+              <Route path="/webinars/:webinar_id/:webinar_name" element={<WebinarDetailsPage />} />
 
               {/* NEW AUTH ROUTES */}
               <Route path="/login" element={<LoginPage />} />

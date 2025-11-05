@@ -1,27 +1,8 @@
 import React, { useState } from "react";
 import { ChevronUp, ChevronDown } from "lucide-react";
+import { Topic } from "@types";
 
-export interface Topic {
-  topic_id: string;
-  topic_reference_id?: string,
-  name: string;
-  parent_topic_id: string | null;
-  order_number: number;
-  description?: string;
-}
-
-export interface Outcomes {
-  outcome_id: string;
-  name: string;
-  order: number;
-  icon: string;
-}
-
-interface CourseContentsProps {
-  topics: Topic[];
-}
-
-export const CourseContents: React.FC<CourseContentsProps> = ({ topics }) => {
+export const CourseContents: React.FC<{ topics: Topic[]}> = ({ topics }) => {
   const [openTopics, setOpenTopics] = useState<string[]>([]);
   const [openSubtopics, setOpenSubtopics] = useState<string[]>([]);
 

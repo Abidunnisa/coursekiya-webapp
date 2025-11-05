@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Heart, ChevronRight, Award, Users, Target, ArrowDown } from 'lucide-react';
-import { Course, CourseCard } from '@components';
+import { CourseCard } from '@components';
+import { Course } from '@types';
 import { abidunnisa1 } from 'public';
 import { useNavigate } from 'react-router-dom';
 import { useList } from '@refinedev/core';

@@ -3,12 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import * as LucideIcons from "lucide-react";
 import { useList } from '@refinedev/core';
 
-export interface Category {
-  category_id: string;
-  name: string;
-  icon: React.ElementType;
-}
-
 export const CategoriesSection: React.FC = () => {
   const push = useNavigate();
 
