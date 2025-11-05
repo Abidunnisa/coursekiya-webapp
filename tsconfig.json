@@ -26,7 +26,8 @@
       "@public/*": ["./src/public/*"],
       "@public": ["./src/public/index"],
       "@components/*": ["./src/components/*"],
-      "@components": ["./src/components/index"]
+      "@components": ["./src/components/index"],
+      "@mock-data": ["./src/CommonData"]
     },
   },
   "include": [

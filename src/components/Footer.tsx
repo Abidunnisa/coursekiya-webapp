@@ -16,10 +16,10 @@ export const Footer: React.FC = () => {
       { name: 'Partners', href: '#' },
     ],
     'Support': [
-      { name: 'Help Center', href: '#' },
-      { name: 'Contact Us', href: '#' },
-      { name: 'Privacy Policy', href: '#' },
-      { name: 'Terms of Use', href: '#' },
+      { name: 'Contact Us', href: '/contact-us' },
+      { name: 'Terms of Use', href: '/termsofuse' },
+      { name: 'Privacy Policy', href: '/privacypolicy' },
+      { name: 'Refund Policy', href: '/refundpolicy' },
     ],
   };
 
@@ -34,7 +34,7 @@ export const Footer: React.FC = () => {
             <div className="space-y-2">
                <div className="flex items-center">
                  <Phone size={16} className="mr-2 text-gray-500" />
-                 <span>+1 (555) 123-4567</span>
+                 <span>+91 9985462830</span>
                </div>
                <div className="flex items-center">
                  <Mail size={16} className="mr-2 text-gray-500" />
@@ -42,7 +42,7 @@ export const Footer: React.FC = () => {
                </div>
                <div className="flex items-start">
                  <MapPin size={16} className="mr-2 mt-1 text-gray-500" />
-                 <span>123 Learning St, Education City, EC 54321</span>
+                 <span>Hyderabad, Telangana, India</span>
                </div>
             </div>
           </div>

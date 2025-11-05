@@ -3,9 +3,17 @@ import { Heart, ChevronRight, Award, Users, Target, ArrowDown } from 'lucide-rea
 import { Course, CourseCard } from '@components';
 import { abidunnisa1 } from 'public';
 import { useNavigate } from 'react-router-dom';
+import { useList } from '@refinedev/core';
 
-export const HeroSection: React.FC<{ courses: Course[] }> = ({ courses }) => {
+export const HeroSection: React.FC = () => {
   const push = useNavigate();
+
+  const { result: { data: coursesData }, query: { isLoading: coursesLoading } } = useList<Course>({
+    resource: 'api/courses',
+    pagination: {
+      mode: 'off',
+    },
+  });
 
   return (
     <div className="bg-white">
@@ -13,7 +21,7 @@ export const HeroSection: React.FC<{ courses: Course[] }> = ({ courses }) => {
         <div className="absolute top-20 left-10 w-72 h-72 bg-blue-200 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse"></div>
         <div className="absolute bottom-20 right-10 w-72 h-72 bg-indigo-200 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse" style={{ animationDelay: '2s' }}></div>
 
-        <div className="relative z-10 max-w-6xl mx-auto px-6 pb-20 py-12 ">
+        <div className="relative max-w-6xl mx-auto px-6 pb-20 py-12 ">
           <div className="grid md:grid-cols-5 gap-12 items-center">
             <div className="space-y-6 md:col-span-3 col-span-3">
               <div className="inline-block">
@@ -31,7 +39,7 @@ export const HeroSection: React.FC<{ courses: Course[] }> = ({ courses }) => {
             </div>
 
             {/* <div className="relative" style={{ transform: translateY(${ scrollY * - 0.05}px)}}> */}
-            <div className="col-span-3 md:col-span-2 relative bg-white rounded-3xl shadow-2xl overflow-hidden p-8">
+            <a href={"https://www.linkedin.com/company/coursekiya-edu/"} target='_blank' className="col-span-3 md:col-span-2 relative bg-white rounded-3xl shadow-2xl overflow-hidden p-8">
               <div className="aspect-square bg-gradient-to-br from-blue-100 to-indigo-100 rounded-2xl mb-6 flex items-center justify-center overflow-hidden">
                 <img src={abidunnisa1.src} className="w-full h-full object-cover" />
               </div>
@@ -43,13 +51,13 @@ export const HeroSection: React.FC<{ courses: Course[] }> = ({ courses }) => {
                   "My mission is to democratize education and make learning accessible to everyone, everywhere."
                 </p>
               </div>
-            </div>
+            </a>
 
             <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-blue-200 rounded-full -z-10"></div>
           </div>
         </div>
 
-        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 animate-bounce">
+        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 animate-bounce cursor-pointer" onClick={() => { document.getElementById("courseSection")?.scrollIntoView({ behavior: "smooth" }) }}>
           <ArrowDown className="text-blue-600" size={32} />
         </div>
       </section >
@@ -122,7 +130,8 @@ export const HeroSection: React.FC<{ courses: Course[] }> = ({ courses }) => {
 
               <div>
                 <h2 className="text-3xl font-bold text-gray-900 mb-2">Meet the Founders</h2>
-                <p className="text-blue-600 font-medium">Abidunnisa Begum & Shaik Dadavalli</p>
+                <a href='https://www.linkedin.com/in/abidunnisa-begum' target='_blank' className="text-blue-600 font-medium">Abidunnisa Begum </a>
+                <a href='https://www.linkedin.com/in/dadavalli-shaik-abubai-0004a412a' target='_blank' className="text-blue-600 font-medium"> & Shaik Dadavalli</a>
               </div>
             </div>
 
@@ -147,7 +156,7 @@ export const HeroSection: React.FC<{ courses: Course[] }> = ({ courses }) => {
         </div>
       </section>
 
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-white" id="courseSection">
         <div className="max-w-6xl mx-auto px-6 text-center">
           <h2 className="text-4xl font-bold text-gray-900 mb-4">Explore Our Courses</h2>
           <div className="w-20 h-1 bg-blue-600 mx-auto mb-6"></div>
@@ -159,8 +168,8 @@ export const HeroSection: React.FC<{ courses: Course[] }> = ({ courses }) => {
               View All <ChevronRight size={16} className="ml-1" />
             </button>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {courses?.map((course) => (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6" >
+            {coursesData?.slice(0, 4)?.map((course) => (
               <CourseCard key={course?.course_id} course={course} />
             ))}
           </div>

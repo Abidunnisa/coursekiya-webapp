@@ -1,16 +1,27 @@
 import React from 'react';
-import { HeroSection, CategoriesSection, Category, Course, InstructorCTA } from '@components';
+import { HeroSection, CategoriesSection, InstructorCTA } from '@components';
 import ContactUs from './ContactUs';
+import { useAuth } from 'src/context/AuthContext';
+import MyLearningDashboard from './MyLearning';
 
-export const HomePage: React.FC<{ categories: Category[], courses: Course[] }> = ({ categories, courses }) => {
-  const featuredCourses = courses?.slice(0, 4);
+export const HomePage: React.FC = () => {
+
+  const { session, logout } = useAuth();
 
   return (
     <div>
-      <HeroSection courses={featuredCourses} />
-      <CategoriesSection categories={categories} />
-      <InstructorCTA />
-      <ContactUs courses={courses} />
+      {session ? (
+        <div>
+          <MyLearningDashboard />
+        </div>
+      ) : (
+        <div>
+          <HeroSection />
+          <CategoriesSection />
+          <InstructorCTA />
+          <ContactUs />
+        </div>
+      )}
     </div>
   )
 };

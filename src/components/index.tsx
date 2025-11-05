@@ -12,3 +12,6 @@ export { Rating } from './Rating';
 export { Timeline } from './TimeLine';
 export { ComingSoon } from './ComingSoon';
 export { ScrollToTop } from './ScrollToTop';
+export { CourseContents } from './CourseContents';
+export type { Topic, Outcomes } from './CourseContents';
+export { CourseDetailsPageSkeleton } from './skeletons/CourseDetailsPageSkeleton';

@@ -12,7 +12,7 @@ export interface Course {
   discounted_price: string;
   rating: string;
   review_count: string;
-  instructor: Instructor;
+  instructors: Instructor;
   category: string;
   level: 'Beginner' | 'Intermediate' | 'Advanced';
   duration_hours: string;
@@ -24,7 +24,7 @@ export const CourseCard: React.FC<{ course: Course }> = ({ course }) => {
   const push = useNavigate();
   return (
     <div className="group bg-white rounded-lg shadow-md overflow-hidden flex flex-col h-full transition-all duration-300 ease-in-out hover:shadow-xl hover:-translate-y-1">
-      <div onClick={() => push(`/courses/${course.course_id}`, {
+      <div onClick={() => push(`/courses/${course?.course_id}/${course?.title}`, {
         state: {
           course: course,
         },
@@ -39,7 +39,7 @@ export const CourseCard: React.FC<{ course: Course }> = ({ course }) => {
           <h3 className="text-lg font-semibold text-gray-900 group-hover:text-blue-600 mb-2 truncate">
             {course?.title}
           </h3>
-          <p className="text-sm text-gray-500 mb-3">{course?.instructor?.name}</p>
+          <p className="text-sm text-gray-500 mb-3">{course?.instructors?.name}</p>
           {/* <div className="flex items-center mb-3">
             <span className="text-base font-bold text-yellow-500 mr-1">{course?.rating?.toFixed(1)}</span>
             <StarRating rating={course?.rating} />

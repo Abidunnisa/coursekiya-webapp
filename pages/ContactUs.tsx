@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { Course } from "@components";
 import { useLocation } from "react-router-dom";
+import { useList } from "@refinedev/core";
 
-export const ContactUs: React.FC<{ courses: Course[] }> = ({courses}) => {
+export const ContactUs: React.FC = () => {
   const [formData, setFormData] = useState({
     course: "",
     name: "",
@@ -14,10 +15,18 @@ export const ContactUs: React.FC<{ courses: Course[] }> = ({courses}) => {
 
   const location = useLocation();
 
+  const { result: { data: coursesData }, query: { isLoading: coursesLoading } } = useList<Course>({
+    resource: 'api/courses',
+    pagination: {
+      mode: 'off',
+    },
+  });
+
   useEffect(() => {
-  if (location?.state?.selectedCourse) {
-    setFormData({...formData, ['course']: location?.state?.selectedCourse})
-  }}, [location])
+    if (location?.state?.selectedCourse) {
+      setFormData({ ...formData, ['course']: location?.state?.selectedCourse })
+    }
+  }, [location])
 
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
@@ -143,13 +152,13 @@ export const ContactUs: React.FC<{ courses: Course[] }> = ({courses}) => {
                 className="mt-1 block w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-blue-500 focus:border-blue-500 cursor-pointer"
               >
                 <option value="">Select a course</option>
-                {courses?.map((c) => (
+                {coursesData?.map((c) => (
                   <option key={c?.course_id} value={c?.title}>
                     {c?.title}
                   </option>
                 ))}
               </select>
-            </div>  
+            </div>
 
             {/* Comments */}
             <div>
