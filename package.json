@@ -13,10 +13,6 @@
     "vercel-build": "yarn install --ignore-peer-deps && yarn build"
   },
   "dependencies": {
-    "@dytesdk/react-ui-kit": "^3.0.8",
-    "@dytesdk/react-web-core": "^3.1.10",
-    "@dytesdk/ui-kit": "^3.0.8",
-    "@dytesdk/ui-kit-addons": "^4.1.0",
     "@refinedev/core": "^5.0.5",
     "@refinedev/simple-rest": "^6.0.1",
     "@types/node": "^24.10.0",
