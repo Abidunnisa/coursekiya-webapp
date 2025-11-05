@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useAuth } from 'src/context/AuthContext';
-import { Course, CourseCard } from '@components';
+import { CourseCard } from '@components';
+import { Course } from '@types';
 
 const API_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
 
