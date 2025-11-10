@@ -5,9 +5,13 @@ import { Course } from '@types';
 import { abidunnisa1 } from 'public';
 import { useNavigate } from 'react-router-dom';
 import { useList } from '@refinedev/core';
+import { CourseCardSkeleton } from './skeletons/CourseCardSkeleton';
 
 export const HeroSection: React.FC = () => {
   const push = useNavigate();
+
+  const [imagesLoaded, setImagesLoaded] = useState(false);
+  const [allLoaded, setAllLoaded] = useState(false);
 
   const { result: { data: coursesData }, query: { isLoading: coursesLoading } } = useList<Course>({
     resource: 'api/courses',
@@ -15,6 +19,27 @@ export const HeroSection: React.FC = () => {
       mode: 'off',
     },
   });
+
+  useEffect(() => {
+    if (!coursesLoading && coursesData?.length) {
+      const imagePromises = coursesData.map((course) => {
+        return new Promise((resolve) => {
+          const img = new Image();
+          img.src = course.image_url;
+          img.onload = resolve;
+          img.onerror = resolve;
+        });
+      });
+
+      Promise.all(imagePromises).then(() => {
+        setImagesLoaded(true);
+      });
+    }
+  }, [coursesData, coursesLoading]);
+
+  useEffect(() => {
+    setAllLoaded(!coursesLoading && imagesLoaded);
+  }, [coursesLoading, imagesLoaded]);
 
   return (
     <div className="bg-white">
@@ -170,9 +195,14 @@ export const HeroSection: React.FC = () => {
             </button>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6" >
-            {coursesData?.slice(0, 4)?.map((course) => (
-              <CourseCard key={course?.course_id} course={course} />
-            ))}
+            {allLoaded ? (
+              coursesData?.slice(0, 4)?.map((course) => (
+                <CourseCard key={course?.course_id} course={course} />
+              ))
+            ) : (
+              <CourseCardSkeleton />
+            )
+            }
           </div>
         </div>
       </section>

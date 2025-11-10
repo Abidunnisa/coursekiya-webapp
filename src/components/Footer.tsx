@@ -1,6 +1,7 @@
 import React from "react";
-import { Twitter, Instagram, Linkedin, Phone, Mail, MapPin } from "lucide-react";
+import { Instagram, Linkedin, Phone, Mail, MapPin, Youtube } from "lucide-react";
 import { coursekiyafullcroppedlogo } from "public";
+import { Link } from "react-router-dom";
 
 export const Footer: React.FC = () => {
   return (
@@ -17,17 +18,15 @@ export const Footer: React.FC = () => {
 
         {/* Center Logo & Socials */}
         <div className="flex flex-col items-center my-10 mx-8 md:my-0 w-1/3">
-          {/* <h1 className="text-5xl font-semibold tracking-[0.3em]">Coursekiya</h1> */}
           <img
             src={coursekiyafullcroppedlogo.src}
             className="max-h-32 w-auto object-contain md:max-h-40"
           />
-          {/* <p className="tracking-widest text-xs mt-1">BEAUTY</p> */}
 
           <div className="flex items-center gap-6 mt-6">
-            <Twitter size={18} className="cursor-pointer hover:opacity-70" />
-            <Linkedin size={18} className="cursor-pointer hover:opacity-70" />
-            <Instagram size={18} className="cursor-pointer hover:opacity-70" />
+            <a href="https://www.youtube.com/channel/UCLuF4nQOJMImbBqNCcpLvhQ" target="_blank"><Youtube size={18} className="cursor-pointer hover:opacity-70" /></a>
+            <a href="https://www.linkedin.com/company/coursekiya-edu" target="_blank"><Linkedin size={18} className="cursor-pointer hover:opacity-70" /></a>
+            <a href="https://www.instagram.com/coursekiya/" target="_blank"><Instagram size={18} className="cursor-pointer hover:opacity-70" /></a>
           </div>
 
           <div className="h-10 w-px bg-gray-400 mt-8 mb-4"></div>
