@@ -134,7 +134,7 @@ export const CourseDetailsPage: React.FC = () => {
               {/* Price + Action Buttons */}
               <div className="bg-white rounded-lg shadow-md p-4 mb-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
                 {/* Price Section */}
-                <div  ref={refAmountSection} id="AmountSection" className="flex-1">
+                <div ref={refAmountSection} id="AmountSection" className="flex-1">
                   {course?.original_price && course?.discounted_price.toString() !== "0" ? (
                     <div>
                       <p className="text-2xl font-bold text-gray-900">
@@ -271,7 +271,7 @@ export const CourseDetailsPage: React.FC = () => {
                 }
                 className="mt-3 w-full border border-blue-600 text-blue-600 font-semibold py-3 rounded-lg hover:bg-blue-50 transition"
               >
-                Enquire Now
+                {course?.status === 'ongoing' ? 'Enroll Now' : 'Enquire Now'}
               </button>
               {/* {course?.status === "ongoing" ? (
                 <button className="mt-4 w-full bg-blue-600 text-white font-semibold py-3 rounded-lg hover:bg-blue-700 transition">
@@ -341,7 +341,7 @@ export const CourseDetailsPage: React.FC = () => {
             }
             className="bg-blue-600 text-white font-semibold px-6 py-2 rounded-lg hover:bg-blue-700 transition"
           >
-            Enquire Now
+            {course?.status === 'ongoing' ? 'Enroll Now' : 'Enquire Now'}
           </button>
         </div>
       )}

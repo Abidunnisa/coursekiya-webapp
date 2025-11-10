@@ -22,6 +22,7 @@ import TermsOfUse from "pages/Termsofuse";
 import PrivacyPolicy from "pages/PrivacyPolicy";
 import RefundPolicy from "pages/RefundPolicy";
 import WebinarDetailsPage from "pages/WebinarDetailsPage";
+import { VideoService } from "pages/VideoService";
 
 const API_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
 
@@ -48,6 +49,7 @@ export default function AppRouter({ Component, pageProps }: any) {
               <Route path="/termsofuse" element={<TermsOfUse />} />
               <Route path="/privacypolicy" element={<PrivacyPolicy />} />
               <Route path="/refundpolicy" element={<RefundPolicy />} />
+              <Route path="/meeting" element={<VideoService />} />
 
               {/* Dynamic Route */}
               <Route path="/courses/:course_id/:course_name" element={<CourseDetailsPage />} />

@@ -22,7 +22,7 @@ export const Header: React.FC = () => {
     { name: "Courses", path: "/courses" },
     { name: "Webinars", path: "/webinars" },
     { name: "Digital Products", path: "/digital-products" },
-    { name: "Teach", path: "/teach" },
+    { name: "Teach", path: "/meeting" },
     { name: "Contact Us", path: "/contact-us" },
   ];
 
@@ -79,7 +79,7 @@ export const Header: React.FC = () => {
                 <ShoppingCart size={20} />
                 <span className="absolute top-0 right-0 block h-2 w-2 rounded-full bg-red-500 ring-2 ring-white" />
               </button>
-              {/* {session ? (
+              {session ? (
               <>
                 <button
                   onClick={() => push('/my-learning')}
@@ -111,7 +111,7 @@ export const Header: React.FC = () => {
                   Sign Up
                 </button>
               </div>
-            )} */}
+            )}
             </div>
           </div>
         </div>
@@ -152,7 +152,7 @@ export const Header: React.FC = () => {
                 Cart
               </button>
             </div>
-            {/* <div className="pt-4 border-t border-gray-100">
+            <div className="pt-4 border-t border-gray-100">
               {session ? (
                 <div
                   onClick={() => {
@@ -185,7 +185,7 @@ export const Header: React.FC = () => {
                   </div>
                 </>
               )}
-            </div> */}
+            </div>
           </div>
         </div>
       )}
