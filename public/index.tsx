@@ -2,7 +2,7 @@ import coursekiyalogo from "./coursekiyalogo.png";
 import coursekiyafulllogo from "./coursekiyafulllogo.png";
 import coursekiyafullcroppedlogo from "./coursekiyafullcroppedlogo.png";
 import coursekiyafavicon from "./coursekiyafavicon.png";
-import abidunnisa1 from "./abidunnisa1.jpg";
+import abidunnisa1 from "./abidunnisa1.jpeg";
 import abidunnisa2 from "./abidunnisa2.jpeg";
 import teachingstudio from "./teachingstudio.png";
 import dataanalyticscoursecard from "./courseCards/dataanalyticscoursecard.png";
