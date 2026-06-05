@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { Heart, ChevronRight, Award, Users, Target, ArrowDown } from 'lucide-react';
 import { CourseCard } from '@components';
 import { Course } from '@types';
-import { abidunnisa1 } from 'public';
 import { useNavigate } from 'react-router-dom';
 import { useList } from '@refinedev/core';
 import { CourseCardSkeleton } from './skeletons/CourseCardSkeleton';
@@ -65,20 +64,7 @@ export const HeroSection: React.FC = () => {
             </div>
 
             {/* <div className="relative" style={{ transform: translateY(${ scrollY * - 0.05}px)}}> */}
-            <a href={"https://www.linkedin.com/company/coursekiya-edu/"} target='_blank' className="col-span-3 md:col-span-2 relative bg-white rounded-3xl shadow-2xl overflow-hidden p-8">
-              <div className="aspect-square bg-gradient-to-br from-blue-100 to-indigo-100 rounded-2xl mb-6 flex items-center justify-center overflow-hidden">
-                <img src={abidunnisa1.src} className="w-full h-full object-cover" />
-              </div>
-
-              <div className="text-center">
-                <h3 className="text-2xl font-bold text-gray-900 mb-2">Abidunnisa Begum</h3>
-                <p className="text-blue-600 font-medium mb-4">Founder & CEO</p>
-                <p className="text-gray-600 leading-relaxed">
-                  "My mission is to democratize education and make learning accessible to everyone, everywhere."
-                </p>
-              </div>
-            </a>
-
+           
             <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-blue-200 rounded-full -z-10"></div>
           </div>
         </div>
