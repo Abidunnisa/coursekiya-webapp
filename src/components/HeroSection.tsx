@@ -142,7 +142,7 @@ export const HeroSection: React.FC = () => {
 
               <div>
                 <h2 className="text-3xl font-bold text-gray-900 mb-2">Meet the Founders</h2>
-                <a href='https://www.linkedin.com/in/abidunnisa-begum' target='_blank' className="text-blue-600 font-medium">Abidunnisa Begum </a>
+                <span className="text-blue-600 font-medium">Abidunnisa Begum </span>
                 <a href='https://www.linkedin.com/in/dadavalli-shaik-abubai-0004a412a' target='_blank' className="text-blue-600 font-medium"> & Shaik Dadavalli</a>
               </div>
             </div>
